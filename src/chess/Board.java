@@ -8,6 +8,7 @@ package chess;
  *
  */
 public class Board {
+	private int test;
 
 	/**
 	 * 
