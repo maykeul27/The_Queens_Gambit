@@ -1,19 +1,10 @@
-/**
- * 
- */
 package chess;
 
-/**
- * @author Mika
- *
- */
 public class Pawn extends Pieces {
 
-	/**
-	 * 
-	 */
-	public Pawn(String couleur) {
-		super("Pion", couleur);
+
+	public Pawn(String color) {
+		super("Pawn", color);
 	}
 
 	/**

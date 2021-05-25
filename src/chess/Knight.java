@@ -1,19 +1,10 @@
-/**
- * 
- */
 package chess;
 
-/**
- * @author Mika
- *
- */
 public class Knight extends Pieces {
 
-	/**
-	 * 
-	 */
-	public Knight(String couleur) {
-		super("Cavalier", couleur);
+	
+	public Knight(String color) {
+		super("Knight", color);
 	}
 
 	/**

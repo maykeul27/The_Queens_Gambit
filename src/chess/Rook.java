@@ -1,19 +1,11 @@
-/**
- * 
- */
 package chess;
 
-/**
- * @author Mika
- *
- */
+
 public class Rook extends Pieces {
 
-	/**
-	 * 
-	 */
-	public Rook(String couleur) {
-		super("Tour", couleur);
+
+	public Rook(String color) {
+		super("Rook", color);
 		
 	}
 

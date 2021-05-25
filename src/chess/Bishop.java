@@ -1,19 +1,11 @@
-/**
- * 
- */
 package chess;
 
-/**
- * @author Mika
- *
- */
+
 public class Bishop extends Pieces {
 
-	/**
-	 * 
-	 */
-	public Bishop(String couleur) {
-		super("Fou", couleur);
+
+	public Bishop(String color) {
+		super("Bishop", color);
 	}
 
 	/**

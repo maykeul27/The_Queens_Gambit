@@ -22,7 +22,7 @@ public class Case {
 		this.piece = piece;
 	}
 	
-	public boolean estOccupe() {
+	public boolean isOccupied() {
 		return (piece != null);
 	}
 	

@@ -1,39 +1,33 @@
-/**
- * 
- */
 package chess;
 
-/**
- * @author Mika
- *
- */
-public abstract class Pieces {
+
+public class Pieces {
 	
-	private String nom;
-	private String couleur;
+	private String name;
+	private String color;
 	
-	public Pieces(String nom, String couleur) {
-		this.nom = nom;
-		this.couleur = couleur;
+	public Pieces(String name, String color) {
+		this.name = name;
+		this.color = color;
 	}
 	
-	public String getNom() {
-		return nom;
+	public String getname() {
+		return name;
 		
 	}
 	
 	public String getColor() {
-		return couleur;
+		return color;
 		
 	}
 	
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setname(String name) {
+		this.name = name;
 		
 	}
 	
-	public void setColor(String couleur) {
-		this.couleur = couleur;
+	public void setColor(String color) {
+		this.color = color;
 	}
 
 }

@@ -1,19 +1,11 @@
-/**
- * 
- */
 package chess;
 
-/**
- * @author Mika
- *
- */
+
 public class Queen extends Pieces {
 
-	/**
-	 * 
-	 */
-	public Queen(String couleur) {
-		super("Reine", couleur);
+
+	public Queen(String color) {
+		super("Queen", color);
 	}
 
 	/**
