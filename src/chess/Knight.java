@@ -1,19 +1,11 @@
-/**
- * 
- */
 package chess;
 
-/**
- * @author Mika
- *
- */
 public class Knight extends Pieces {
 
-	/**
-	 * 
-	 */
-	public Knight() {
-		// TODO Auto-generated constructor stub
+	
+	public Knight(String color) {
+		super("Knight", color);
+
 	}
 
 	/**

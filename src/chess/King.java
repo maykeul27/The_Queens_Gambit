@@ -1,19 +1,12 @@
-/**
- * 
- */
 package chess;
 
-/**
- * @author Mika
- *
- */
+
 public class King extends Pieces {
 
-	/**
-	 * 
-	 */
-	public King() {
-		// TODO Auto-generated constructor stub
+	
+	public King(String color) {
+		super("King", color);
+		
 	}
 
 	/**

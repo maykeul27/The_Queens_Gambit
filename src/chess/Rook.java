@@ -1,19 +1,13 @@
-/**
- * 
- */
 package chess;
 
-/**
- * @author Mika
- *
- */
+
 public class Rook extends Pieces {
 
-	/**
-	 * 
-	 */
-	public Rook() {
-		// TODO Auto-generated constructor stub
+
+	public Rook(String color) {
+		super("Rook", color);
+		
+
 	}
 
 	/**

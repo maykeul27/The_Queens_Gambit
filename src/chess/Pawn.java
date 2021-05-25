@@ -1,19 +1,11 @@
-/**
- * 
- */
 package chess;
 
-/**
- * @author Mika
- *
- */
 public class Pawn extends Pieces {
 
-	/**
-	 * 
-	 */
-	public Pawn() {
-		// TODO Auto-generated constructor stub
+
+	public Pawn(String color) {
+		super("Pawn", color);
+
 	}
 
 	/**
