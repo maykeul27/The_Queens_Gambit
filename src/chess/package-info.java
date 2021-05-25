@@ -1,0 +1,8 @@
+/**
+ * 
+ */
+/**
+ * @author Mika
+ *
+ */
+package chess;
