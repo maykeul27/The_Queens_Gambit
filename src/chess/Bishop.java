@@ -10,19 +10,19 @@ public class Bishop extends Pieces {
 	}
 
 	
-	public boolean deplacementFouValide(int x, int y) {
+	public boolean bishopIsValidated(int x, int y) {
 		
-		for(int i = 0; i < 8; i++) {
-			    if(PLATEAU.isEmpty(this.x + i, this.y + i)){
+		for(int i = 1; i < 8; i++) {
+			    if((this.x + i == x) && (this.y + i == y )){
 			    	return true;
 				}
-				if(PLATEAU.isEmpty(this.x -i, this.y - i)){
+				if((this.x - i == x) && (this.y - i == y )){
 					return true;
 				}
-				if(PLATEAU.isEmpty(this.x +i, this.y - i )){
+				if((this.x + i == x) && (this.y - i == y )){
 					return true;
 				}
-				if(PLATEAU.isEmpty(this.x -i, this.y + i)){
+				if((this.x - i == x) && (this.y + i == y )){
 					return true;
 				}
 			}

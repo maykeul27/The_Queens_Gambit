@@ -8,12 +8,13 @@ public class Knight extends Pieces {
 
 	}
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	
+	public boolean deplacementCavalierValide(int x, int y) {
+			
+			if(PLATEAU.isEmpty(this.x - 2, this.y - 1))
+		
+		
+		
 	}
 
 }
