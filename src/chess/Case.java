@@ -2,31 +2,37 @@ package chess;
 
 public class Case {
 	
-	private Pieces piece;
+	private Pieces pieceInPlace;
 	
 	public Case() {
 
     }
 	
 	public Case(Pieces piece) {
-		this.piece = piece;
+		pieceInPlace = piece;
 
 	}
 	
-	public Pieces getPiece() {
-		return piece;
+	public Pieces getPieceInPlace() {
+		return pieceInPlace;
 		
 	}
 	
-	public void setPiece(Pieces piece) {
-		this.piece = piece;
+	public void setPieceInPlace(Pieces pieceToPlace) {
+		pieceInPlace = pieceToPlace;
+		return; 
 	}
 	
-	public boolean isOccupied(String color) {
-		if (piece == null)
+	public void setPieceToNull()
+	{
+		pieceInPlace = null;
+	}
+	
+	public boolean isOccupied(int x, int y) {
+		if (pieceInPlace == null)
 			return false;
 		else
-			return (piece.getColor().equals(color));
+			return (pieceInPlace.getColor().equals(color)); //???
 	}
 	
 }

@@ -38,17 +38,17 @@ public class Board {
 				 linePieces = linePieces + 7;
 				 linePawn = linePawn + 5;
 			 }
-			 board[linePieces][0].setPiece(new Rook(linePieces, 0,color));
-			 board[linePieces][1].setPiece(new Knight(linePieces, 1, color));
-			 board[linePieces][2].setPiece(new Bishop(linePieces, 2, color));
-			 board[linePieces][3].setPiece(new Queen(linePieces, 3, color));
-			 board[linePieces][4].setPiece(new King(linePieces, 4, color));
-			 board[linePieces][5].setPiece(new Bishop(linePieces, 5, color));
-			 board[linePieces][6].setPiece(new Knight(linePieces, 6, color));
-			 board[linePieces][7].setPiece(new Rook(linePieces, 7, color));
+			 board[linePieces][0].setPieceInPlace(new Rook(linePieces, 0,color));
+			 board[linePieces][1].setPieceInPlace(new Knight(linePieces, 1, color));
+			 board[linePieces][2].setPieceInPlace(new Bishop(linePieces, 2, color));
+			 board[linePieces][3].setPieceInPlace(new Queen(linePieces, 3, color));
+			 board[linePieces][4].setPieceInPlace(new King(linePieces, 4, color));
+			 board[linePieces][5].setPieceInPlace(new Bishop(linePieces, 5, color));
+			 board[linePieces][6].setPieceInPlace(new Knight(linePieces, 6, color));
+			 board[linePieces][7].setPieceInPlace(new Rook(linePieces, 7, color));
 			 	 
 			 for(int a = 0; a < 7; a++) {
-				 board[linePawn][a].setPiece(new Pawn(linePawn, a, color));
+				 board[linePawn][a].setPieceInPlace(new Pawn(linePawn, a, color));
 			 }
 			 color = "white";
 			 

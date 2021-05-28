@@ -17,9 +17,30 @@ public class King extends Pieces {
 	}
 	
 
-	public boolean deplacementRoiValide(int x, int y) {
+	public boolean isValid(int x, int y, int toX, int toY){
 		
-		if ((PLATEAU.isEmpty(this.x + 1, this.y)) || (PLATEAU.isEmpty(this.x - 1, this.y))) {     // Horizontal moves
+		if  (!super.isValid(x, y, toX, toY))
+		{
+			return false;
+		}
+		
+		else if ((Math.abs(x-toX) != 1 ) || (Math.abs(y-toY) != 1 ))
+		{
+			return false;
+		}
+		
+		return true;
+	}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*else if ((PLATEAU.isEmpty(this.x + 1, this.y)) || (PLATEAU.isEmpty(this.x - 1, this.y))) {     // Horizontal moves
 			
 			return true;
 		}
@@ -34,10 +55,8 @@ public class King extends Pieces {
 			return true;
 		}
 		
-		return false;
+		return false;*/
 		
 		
 		
 	}
-
-}

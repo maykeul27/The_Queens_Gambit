@@ -11,7 +11,10 @@ public class Knight extends Pieces {
 	
 	public boolean deplacementCavalierValide(int x, int y) {
 			
-			if(PLATEAU.isEmpty(this.x - 2, this.y - 1))
+			if(PLATEAU.isEmpty(this.x - 2, this.y - 1)):
+			{
+			S
+			}
 		
 		
 		

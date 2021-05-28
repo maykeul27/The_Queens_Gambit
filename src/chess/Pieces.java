@@ -36,5 +36,12 @@ public abstract class Pieces {
 	public void setColor(String color) {
 		this.color = color;
 	}
-
+	
+	public boolean isValid(int x, int y, int toX, int toY){
+        if(toX == x && toY == y)
+            return false;
+        if(toX > 7 || toY > 7 || toX < 0 || toY < 0)
+            return false;
+        return true;
+    }
 }

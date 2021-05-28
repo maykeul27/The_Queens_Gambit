@@ -1,6 +1,7 @@
 package chess;
 
 import chess.Board;
+import chess.Case;
 
 public class Bishop extends Pieces {
 
@@ -10,25 +11,32 @@ public class Bishop extends Pieces {
 	}
 
 	
-	public boolean bishopIsValidated(int x, int y) {
+	public boolean isValid(int x, int y, int toX, int toY){
 		
-		for(int i = 1; i < 8; i++) {
-			    if((this.x + i == x) && (this.y + i == y )){
-			    	return true;
-				}
-				if((this.x - i == x) && (this.y - i == y )){
-					return true;
-				}
-				if((this.x + i == x) && (this.y - i == y )){
-					return true;
-				}
-				if((this.x - i == x) && (this.y + i == y )){
-					return true;
-				}
-			}
-
+		int lineDiff= toX - x;
+		int columnDiff= toY - y;
+		int unitylineDiff= lineDiff/Math.abs(lineDiff);
+		int unitycolumnDiff= columnDiff/Math.abs(columnDiff);
+		
+		 
+		if  (!super.isValid(x, y, toX, toY))
+		{
 			return false;
-	}
+		}
 		
-
+		while ((lineDiff > 0) && (columnDiff > 0))
+		{
+			if (Piece.Case.Board[x+(lineDiff/Math.abs(lineDiff))][y+(columnDiff/Math.abs(columnDiff))] != null) //Reste à coder la méthode qui retourne la valeur de l'attribut Piece de l'objet Case dans le tableau Board
+				{
+					if (Piece.Case.Board[x+(lineDiff/Math.abs(lineDiff))][y+(columnDiff/Math.abs(columnDiff))].getColor() == this.getColor()) //Reste à coder la méthode qui retourne la valeur de l'attribut Piece de l'objet Case dans le tableau Board
+					{
+						return false;
+					}
+					return true;
+				}
+			lineDiff= lineDiff - unitylineDiff;
+			columnDiff= columnDiff - unitycolumnDiff;
+						
+		}
+	}
 }
