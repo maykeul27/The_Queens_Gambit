@@ -4,8 +4,8 @@ package chess;
 public class Bishop extends Pieces {
 
 
-	public Bishop(String color) {
-		super("Bishop", color);
+	public Bishop(int x, int y, String color) {
+		super(x, y, "Bishop", color);
 	}
 
 	/**

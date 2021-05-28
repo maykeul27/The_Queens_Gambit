@@ -5,8 +5,12 @@ public class Pieces {
 	
 	private String name;
 	private String color;
+	protected int x;
+	protected int y;
 	
-	public Pieces(String name, String color) {
+	public Pieces(int x, int y, String name, String color) {
+		this.x = x;
+		this.y = y;
 		this.name = name;
 		this.color = color;
 	}

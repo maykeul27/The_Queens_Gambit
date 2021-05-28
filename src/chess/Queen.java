@@ -4,8 +4,8 @@ package chess;
 public class Queen extends Pieces {
 
 
-	public Queen(String color) {
-		super("Queen", color);
+	public Queen(int x, int y, String color) {
+		super(x, y, "Queen", color);
 
 	}
 

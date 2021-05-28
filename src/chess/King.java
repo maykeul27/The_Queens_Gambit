@@ -2,19 +2,24 @@ package chess;
 
 
 public class King extends Pieces {
+	
+	boolean echec;
+	boolean echecEtMat;
 
 	
-	public King(String color) {
-		super("King", color);
+	public King(int x, int y, String color) {
+		super(x, y, "King", color);
+		echec = false;
+		echecEtMat = false;
 		
 	}
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public boolean deplacementRoiValide(int x, int y) {
+		
+		
+		
+		
+		
 	}
 
 }

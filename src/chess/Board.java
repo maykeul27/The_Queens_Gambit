@@ -3,7 +3,7 @@ package chess;
 
 public class Board {
 	
-	 private static int lines = 8;
+	private static int lines = 8;
     private static int columns = 8;
     private Case [][] board;
 
@@ -36,21 +36,33 @@ public class Board {
 				 linePieces = linePieces + 7;
 				 linePawn = linePawn + 5;
 			 }
-			 board[linePieces][0].setPiece(new Rook(color));
-			 board[linePieces][1].setPiece(new Knight(color));
-			 board[linePieces][2].setPiece(new Bishop(color));
-			 board[linePieces][3].setPiece(new Queen(color));
-			 board[linePieces][4].setPiece(new King(color));
-			 board[linePieces][5].setPiece(new Bishop(color));
-			 board[linePieces][6].setPiece(new Knight(color));
-			 board[linePieces][7].setPiece(new Rook(color));
+			 board[linePieces][0].setPiece(new Rook(linePieces, 0,color));
+			 board[linePieces][1].setPiece(new Knight(linePieces, 1, color));
+			 board[linePieces][2].setPiece(new Bishop(linePieces, 2, color));
+			 board[linePieces][3].setPiece(new Queen(linePieces, 3, color));
+			 board[linePieces][4].setPiece(new King(linePieces, 4, color));
+			 board[linePieces][5].setPiece(new Bishop(linePieces, 5, color));
+			 board[linePieces][6].setPiece(new Knight(linePieces, 6, color));
+			 board[linePieces][7].setPiece(new Rook(linePieces, 7, color));
 			 	 
 			 for(int a = 0; a < 7; a++) {
-				 board[linePawn][a].setPiece(new Pawn(color));
+				 board[linePawn][a].setPiece(new Pawn(linePawn, a, color));
 			 }
 			 color = "white";
 			 
 		 }
+		 
+	 }
+	 
+	 public boolean isEmpty(int x, int y) {
+		 
+		 if(board[x][y] == null) {
+			 return true;
+		 }
+		 else {
+			 return false;
+		 }
+		 
 		 
 	 }
 

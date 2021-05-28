@@ -22,8 +22,11 @@ public class Case {
 		this.piece = piece;
 	}
 	
-	public boolean isOccupied() {
-		return (piece != null);
+	public boolean isOccupied(String color) {
+		if (piece == null)
+			return false;
+		else
+			return (piece.getColor().equals(color));
 	}
 	
 }

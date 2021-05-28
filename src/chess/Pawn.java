@@ -3,8 +3,8 @@ package chess;
 public class Pawn extends Pieces {
 
 
-	public Pawn(String color) {
-		super("Pawn", color);
+	public Pawn(int x, int y, String color) {
+		super(x, y, "Pawn", color);
 
 	}
 

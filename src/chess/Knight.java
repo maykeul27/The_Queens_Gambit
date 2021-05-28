@@ -3,8 +3,8 @@ package chess;
 public class Knight extends Pieces {
 
 	
-	public Knight(String color) {
-		super("Knight", color);
+	public Knight(int x, int y, String color) {
+		super(x, y, "Knight", color);
 
 	}
 
