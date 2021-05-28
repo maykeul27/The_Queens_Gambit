@@ -5,7 +5,7 @@ public class Board {
 	
 	private static int lines = 8;
     private static int columns = 8;
-    private Case [][] board;
+    private Case[][] board;
 
 
 	 public Board() {

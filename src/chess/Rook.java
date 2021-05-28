@@ -14,13 +14,13 @@ public class Rook extends Pieces {
 	
 	public boolean deplacementTourValide(int x, int y) {
 		
-		if(this.x != x && this.y == y) {    //Deplacement Latéraux
+		if (this.x != x && this.y == y) {    //Deplacement Latéraux
 			
 			if(this.x > x) {           //Gauche vers la Droite
 				
 				for(int i = this.x + 1; i <= x; i++) {
 					
-					if(boardkkk.isEmpty(i, y)) {
+					if(PLATEAU.isEmpty(i, y)) {
 						
 						return true;
 					}
@@ -34,9 +34,9 @@ public class Rook extends Pieces {
 			
 			if(this.x < x) {			//Droite vers la Gauche
 				
-				for(int i = this.x - 1; i <= x; i--) {
+				for(int i = this.x - 1; i >= x; i--) {
 					
-					if(board.isEmpty(i, y)) {
+					if(PLATEAU.isEmpty(i, y)) {
 						
 						return true;
 					}
@@ -57,7 +57,7 @@ public class Rook extends Pieces {
 				
 				for(int i = this.y + 1; i <= y; i++) {
 					
-					if(board.isEmpty(x, i)) {
+					if(PLATEAU.isEmpty(x, i)) {
 						
 						return true;
 					}
@@ -71,9 +71,9 @@ public class Rook extends Pieces {
 			
 			if(this.y < y) {		//Bas vers le Haut
 				
-				for(int i = this.y - 1; i <= y; i--) {
+				for(int i = this.y - 1; i >= y; i--) {
 					
-					if(board.isEmpty(x, i)) {
+					if(PLATEAU.isEmpty(x, i)) {
 						
 						return true;
 					}
@@ -88,7 +88,14 @@ public class Rook extends Pieces {
 			
 		}
 		
+		if( this.x == x && this.y == y) {
+			
+			return false;
+			
+		}
 		
+		
+		return false;
 		
 	}
 		

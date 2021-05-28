@@ -13,8 +13,18 @@ public class King extends Pieces {
 		echecEtMat = false;
 		
 	}
+	
+	public boolean isEchec() {
+		return echec;
+	}
+	
+	public boolean isEchecEtMat() {
+		return echecEtMat;
+	}
 
 	public boolean deplacementRoiValide(int x, int y) {
+		
+		if (this.x + 1 == x && this.y )
 		
 		
 		
