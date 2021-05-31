@@ -11,7 +11,7 @@ public class Bishop extends Pieces {
 	}
 
 	
-	public boolean isValid(int x, int y, int toX, int toY){ //Voir si possible de tester directement la couleur au lieu des 5 tests
+	public boolean isValid(int x, int y, int toX, int toY){ //Voir si possible de tester directement la couleur au lieu des 2 tests via try catch
 		
 		int lineDiff= toX - x;
 		int columnDiff= toY - y;
