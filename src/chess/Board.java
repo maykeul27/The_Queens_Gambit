@@ -22,7 +22,13 @@ public class Board {
 		 
 		 this.piecesPlacement();
 	 }
-	 
+
+	 public Case getCase(int x, int y)
+	 {
+		 Case res = board[x][y];
+		 
+		 return res;
+	 } //Ajouter Exception TRY CATCH
 	 
 	 public void piecesPlacement() {
 		 

@@ -11,12 +11,13 @@ public class Bishop extends Pieces {
 	}
 
 	
-	public boolean isValid(int x, int y, int toX, int toY){
+	public boolean isValid(int x, int y, int toX, int toY){ //Voir si possible de tester directement la couleur au lieu des 5 tests
 		
 		int lineDiff= toX - x;
 		int columnDiff= toY - y;
 		int unityLineDiff= lineDiff/Math.abs(lineDiff);
 		int unityColumnDiff= columnDiff/Math.abs(columnDiff);
+		Pieces piece = (PLATEAU.getCase(x + unityLineDiff, y + unityColumnDiff)).getPieceInPlace();
 		
 		 
 		if  (!super.isValid(x, y, toX, toY))
@@ -26,9 +27,9 @@ public class Bishop extends Pieces {
 		
 		while ((lineDiff > 0) && (columnDiff > 0))
 		{
-			if (Piece.Case.Board[x + unityLineDiff][y + unityColumnDiff] != null) //Reste à coder la méthode qui retourne la valeur de l'attribut Piece de l'objet Case dans le tableau Board
+			if (piece != null)
 				{
-					if (Piece.Case.Board[x+(lineDiff/Math.abs(lineDiff))][y+(columnDiff/Math.abs(columnDiff))].getColor() == this.getColor()) //Reste à coder la méthode qui retourne la valeur de l'attribut Piece de l'objet Case dans le tableau Board
+					if (piece.getColor() == this.getColor())
 					{
 						return false;
 					}
@@ -38,5 +39,6 @@ public class Bishop extends Pieces {
 			columnDiff= columnDiff - unityColumnDiff;
 						
 		}
+		return false;
 	}
 }

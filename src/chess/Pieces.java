@@ -43,5 +43,6 @@ public abstract class Pieces {
         if(toX > 7 || toY > 7 || toX < 0 || toY < 0)
             return false;
         return true;
+        //Appartient-elle à un joueur
     }
 }
