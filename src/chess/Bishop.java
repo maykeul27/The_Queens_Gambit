@@ -9,7 +9,6 @@ public class Bishop extends Pieces {
 	public Bishop(int x, int y, String color) {
 		super(x, y, "Bishop", color);
 	}
-
 	
 	public boolean isValid(int x, int y, int toX, int toY){ //Voir si possible de tester directement la couleur au lieu des 2 tests via try catch
 		

@@ -16,7 +16,13 @@ public class Board {
 		 {
 			 for(int j = 0; j < columns; j++)
 			 {
-				 board[i][j] = new Case();
+				 if ((i+j)%2 == 0)
+				 {
+					 board[i][j] = new Case("black"); //For IHM purpose
+				 } else
+				 {
+					 board[i][j] = new Case("white"); //For IHM purpose
+				 }
 			 }
 		 }
 		 
@@ -41,8 +47,8 @@ public class Board {
 			 if( color.equals("black")) {
 			 }
 			 else {
-				 linePieces = linePieces + 7;
-				 linePawn = linePawn + 5;
+				 linePieces = 7;
+				 linePawn = 6;
 			 }
 			 board[linePieces][0].setPieceInPlace(new Rook(linePieces, 0,color));
 			 board[linePieces][1].setPieceInPlace(new Knight(linePieces, 1, color));
@@ -62,7 +68,7 @@ public class Board {
 		 
 	 }
 	 
-	 public boolean isEmpty(int x, int y) {
+	 /*public boolean isEmpty(int x, int y) {
 		 
 		 
 		 if(x > 7 || y > 7 || x < 0 || y < 0) {
@@ -82,6 +88,6 @@ public class Board {
 		 
 		 }
 		 
-	 }
+	 }*/
 
 }

@@ -3,15 +3,12 @@ package chess;
 public class Case {
 	
 	private Pieces pieceInPlace;
+	private String color;
 	
-	public Case() {
-
+	public Case(String color) {
+		this.color = color;
+		
     }
-	
-	public Case(Pieces piece) {
-		pieceInPlace = piece;
-
-	}
 	
 	public Pieces getPieceInPlace() {
 		return pieceInPlace;
@@ -28,11 +25,11 @@ public class Case {
 		pieceInPlace = null;
 	}
 	
-	public boolean isOccupied(int x, int y) {
+	public boolean isOccupied() {
 		if (pieceInPlace == null)
 			return false;
 		else
-			return (pieceInPlace.getColor().equals(color)); //???
+			return true;
 	}
 	
 }
