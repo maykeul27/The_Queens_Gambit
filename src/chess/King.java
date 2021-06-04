@@ -31,6 +31,12 @@ public class King extends Pieces {
 		
 		return true;
 	}
+
+	@Override
+	public boolean toMove(int x, int y) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 		
 		
 		

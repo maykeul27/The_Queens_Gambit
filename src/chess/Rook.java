@@ -1,7 +1,5 @@
 package chess;
 
-import chess.Board;
-
 
 public class Rook extends Pieces {
 
@@ -97,6 +95,12 @@ public class Rook extends Pieces {
 		
 		return false;
 		
+	}
+
+	@Override
+	public boolean toMove(int x, int y) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 		
 		

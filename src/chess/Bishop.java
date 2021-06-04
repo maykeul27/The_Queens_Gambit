@@ -1,8 +1,5 @@
 package chess;
 
-import chess.Board;
-import chess.Case;
-
 public class Bishop extends Pieces {
 
 
@@ -38,6 +35,12 @@ public class Bishop extends Pieces {
 			columnDiff= columnDiff - unityColumnDiff;
 						
 		}
+		return false;
+	}
+
+	@Override
+	public boolean toMove(int x, int y) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 }

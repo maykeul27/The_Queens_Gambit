@@ -68,7 +68,7 @@ public class Board {
 		 
 	 }
 	 
-	 /*public boolean isEmpty(int x, int y) {
+	 public boolean isEmpty(int x, int y) {
 		 
 		 
 		 if(x > 7 || y > 7 || x < 0 || y < 0) {
@@ -88,6 +88,6 @@ public class Board {
 		 
 		 }
 		 
-	 }*/
+	 }
 
 }
