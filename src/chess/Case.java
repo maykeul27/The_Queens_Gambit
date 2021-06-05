@@ -1,29 +1,49 @@
 package chess;
 
-public class Case {
+public class Case { //Still need to Add Exception TRY CATCH everywhere
 	
-	private Pieces piece;
+	private Piece pieceInPlace;
+	private String color;
 	
-	public Case() {
-
+	public Case(String color) {
+		this.setColor(color);
+		
     }
 	
-	public Case(Pieces piece) {
-		this.piece = piece;
-
-	}
-	
-	public Pieces getPiece() {
-		return piece;
+	public Piece getPieceInPlace() {
+		return pieceInPlace;
 		
 	}
 	
-	public void setPiece(Pieces piece) {
-		this.piece = piece;
+	public void setPieceInPlace(Piece pieceToPlace) {
+		pieceInPlace = pieceToPlace;
+		return; 
+	}
+	
+	public void setPieceToNull()
+	{
+		pieceInPlace = null;
 	}
 	
 	public boolean isOccupied() {
-		return (piece != null);
+		if (pieceInPlace == null)
+			return false;
+		else
+			return true;
+	}
+
+	/**
+	 * @return the color
+	 */
+	public String getColor() {
+		return color;
+	}
+
+	/**
+	 * @param color the color to set
+	 */
+	public void setColor(String color) {
+		this.color = color;
 	}
 	
 }

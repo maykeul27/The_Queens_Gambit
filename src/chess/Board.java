@@ -1,11 +1,11 @@
 package chess;
 
 
-public class Board {
+public class Board { //Still need to Add Exception TRY CATCH everywhere
 	
-	 private static int lines = 8;
+	private static int lines = 8;
     private static int columns = 8;
-    private Case [][] board;
+    private Case[][] board;
 
 
 	 public Board() {
@@ -16,11 +16,25 @@ public class Board {
 		 {
 			 for(int j = 0; j < columns; j++)
 			 {
-				 board[i][j] = new Case();
+				 if ((i+j)%2 == 0)
+				 {
+					 board[i][j] = new Case("black"); //Too use Later IHM?
+				 } else
+				 {
+					 board[i][j] = new Case("white"); //Too use Later IHM?
+				 }
 			 }
 		 }
+		 
+		 this.piecesPlacement();
 	 }
-	 
+
+	 public Case getCase(int x, int y)
+	 {
+		 Case res = board[x][y];
+		 
+		 return res;
+	 } //Still need to Add Exception TRY CATCH
 	 
 	 public void piecesPlacement() {
 		 
@@ -33,25 +47,27 @@ public class Board {
 			 if( color.equals("black")) {
 			 }
 			 else {
-				 linePieces = linePieces + 7;
-				 linePawn = linePawn + 5;
+				 linePieces = 7;
+				 linePawn = 6;
 			 }
-			 board[linePieces][0].setPiece(new Rook(color));
-			 board[linePieces][1].setPiece(new Knight(color));
-			 board[linePieces][2].setPiece(new Bishop(color));
-			 board[linePieces][3].setPiece(new Queen(color));
-			 board[linePieces][4].setPiece(new King(color));
-			 board[linePieces][5].setPiece(new Bishop(color));
-			 board[linePieces][6].setPiece(new Knight(color));
-			 board[linePieces][7].setPiece(new Rook(color));
+			 board[linePieces][0].setPieceInPlace(new Rook(linePieces, 0,color));
+			 board[linePieces][1].setPieceInPlace(new Knight(linePieces, 1, color));
+			 board[linePieces][2].setPieceInPlace(new Bishop(linePieces, 2, color));
+			 board[linePieces][3].setPieceInPlace(new Queen(linePieces, 3, color));
+			 board[linePieces][4].setPieceInPlace(new King(linePieces, 4, color));
+			 board[linePieces][5].setPieceInPlace(new Bishop(linePieces, 5, color));
+			 board[linePieces][6].setPieceInPlace(new Knight(linePieces, 6, color));
+			 board[linePieces][7].setPieceInPlace(new Rook(linePieces, 7, color));
 			 	 
 			 for(int a = 0; a < 7; a++) {
-				 board[linePawn][a].setPiece(new Pawn(color));
+				 board[linePawn][a].setPieceInPlace(new Pawn(linePawn, a, color));
 			 }
 			 color = "white";
 			 
 		 }
 		 
 	 }
+	 
+	 
 
 }

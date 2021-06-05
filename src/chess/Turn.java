@@ -1,24 +1,12 @@
-/**
- * 
- */
 package chess;
 
-/**
- * @author Mika
- *
- */
-public class Bishop extends Pieces {
+public class Turn { //Still need to Add Exception TRY CATCH everywhere
 
-	/**
-	 * 
-	 */
-	public Bishop() {
+	public Turn() {
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @param args
-	 */
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
