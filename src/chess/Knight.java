@@ -1,6 +1,6 @@
 package chess;
 
-public class Knight extends Pieces {
+public class Knight extends Piece {
 
 	
 	public Knight(int x, int y, String color) {
@@ -11,7 +11,7 @@ public class Knight extends Pieces {
 	
 	public boolean deplacementCavalierValide(int x, int y) {
 			
-			if(PLATEAU.isEmpty(this.x - 2, this.y - 1))
+			if(PLATEAU.isEmpty(this.getX() - 2, this.getY() - 1))
 			{
 			
 			}

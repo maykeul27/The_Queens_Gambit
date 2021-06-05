@@ -18,10 +18,10 @@ public class Board {
 			 {
 				 if ((i+j)%2 == 0)
 				 {
-					 board[i][j] = new Case("black"); //For IHM purpose
+					 board[i][j] = new Case("black"); //Too use Later IHM?
 				 } else
 				 {
-					 board[i][j] = new Case("white"); //For IHM purpose
+					 board[i][j] = new Case("white"); //Too use Later IHM?
 				 }
 			 }
 		 }
@@ -34,7 +34,7 @@ public class Board {
 		 Case res = board[x][y];
 		 
 		 return res;
-	 } //Ajouter Exception TRY CATCH
+	 } //Add Exception TRY CATCH
 	 
 	 public void piecesPlacement() {
 		 

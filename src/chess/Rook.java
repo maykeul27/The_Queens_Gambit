@@ -1,7 +1,7 @@
 package chess;
 
 
-public class Rook extends Pieces {
+public class Rook extends Piece {
 
 
 	public Rook(int x, int y, String color) {
@@ -12,11 +12,11 @@ public class Rook extends Pieces {
 	
 	public boolean deplacementTourValide(int x, int y) {
 		
-		if (this.x != x && this.y == y) {    //Deplacement Latéraux
+		if (this.getX() != x && this.getY() == y) {    //Deplacement Latéraux
 			
-			if(this.x > x) {           //Gauche vers la Droite
+			if(this.getX() > x) {           //Gauche vers la Droite
 				
-				for(int i = this.x + 1; i <= x; i++) {
+				for(int i = this.getX() + 1; i <= x; i++) {
 					
 					if(PLATEAU.isEmpty(i, y)) {
 						
@@ -30,9 +30,9 @@ public class Rook extends Pieces {
 				
 			}	
 			
-			if(this.x < x) {			//Droite vers la Gauche
+			if(this.getX() < x) {			//Droite vers la Gauche
 				
-				for(int i = this.x - 1; i >= x; i--) {
+				for(int i = this.getX() - 1; i >= x; i--) {
 					
 					if(PLATEAU.isEmpty(i, y)) {
 						
@@ -49,11 +49,11 @@ public class Rook extends Pieces {
 			
 		}
 		
-		if(this.x == x && this.y != y) {  	//Deplacements verticaux
+		if(this.getX() == x && this.getY() != y) {  	//Deplacements verticaux
 			
-			if(this.y > y) {			//Haut vers le Bas
+			if(this.getY() > y) {			//Haut vers le Bas
 				
-				for(int i = this.y + 1; i <= y; i++) {
+				for(int i = this.getY() + 1; i <= y; i++) {
 					
 					if(PLATEAU.isEmpty(x, i)) {
 						
@@ -67,9 +67,9 @@ public class Rook extends Pieces {
 				
 			}	
 			
-			if(this.y < y) {		//Bas vers le Haut
+			if(this.getY() < y) {		//Bas vers le Haut
 				
-				for(int i = this.y - 1; i >= y; i--) {
+				for(int i = this.getY() - 1; i >= y; i--) {
 					
 					if(PLATEAU.isEmpty(x, i)) {
 						
@@ -86,7 +86,7 @@ public class Rook extends Pieces {
 			
 		}
 		
-		if( this.x == x && this.y == y) {
+		if( this.getX() == x && this.getY() == y) {
 			
 			return false;
 			

@@ -1,7 +1,7 @@
 package chess;
 
 
-public class Queen extends Pieces {
+public class Queen extends Piece {
 
 
 	public Queen(int x, int y, String color) {

@@ -1,46 +1,66 @@
 package chess;
 
-public class Bishop extends Pieces {
+public class Bishop extends Piece {
 
 
 	public Bishop(int x, int y, String color) {
 		super(x, y, "Bishop", color);
 	}
 	
-	public boolean isValid(int x, int y, int toX, int toY){ //Voir si possible de tester directement la couleur au lieu des 2 tests via try catch
+	public String isValid(int toX, int toY){ //Voir si possible de tester directement la couleur au lieu des 2 tests via try catch
 		
-		int lineDiff= toX - x;
-		int columnDiff= toY - y;
+		int lineDiff= toX - getX();
+		int columnDiff= toY - getY();
 		int unityLineDiff= lineDiff/Math.abs(lineDiff);
 		int unityColumnDiff= columnDiff/Math.abs(columnDiff);
-		Pieces piece = (PLATEAU.getCase(x + unityLineDiff, y + unityColumnDiff)).getPieceInPlace();
-		
+		Piece nextPiece = (PLATEAU.getCase(getX() + unityLineDiff, getY() + unityColumnDiff)).getPieceInPlace();
+		String res;
 		 
-		if  (!super.isValid(x, y, toX, toY))
+		if  (!super.isValid(getX(), getY(), toX, toY))
 		{
-			return false;
+			res = "Can\'t";
+			return res;
 		}
 		
 		while ((lineDiff > 0) && (columnDiff > 0))
 		{
-			if (piece != null)
+			if (nextPiece != null)
 				{
-					if (piece.getColor() == this.getColor())
+					if (nextPiece.getColor() == this.getColor())
 					{
-						return false;
+						res= "Can\'t";
+						return res;
 					}
-					return true;
+					res= "Eat";
+					return res;
 				}
 			lineDiff= lineDiff - unityLineDiff;
 			columnDiff= columnDiff - unityColumnDiff;
 						
 		}
-		return false;
+		res = "Clear";
+		return res;
 	}
 
-	@Override
-	public boolean toMove(int x, int y) {
-		// TODO Auto-generated method stub
+	public boolean toMove(int toX, int toY) {
+		
+		if (this.isValid(toX, toY) == "Can\'t")
+		{
+			return false;
+		}
+		
+		else if (this.isValid(toX,  toY) == "Clear")
+		{
+			this.setX(toX);
+			this.setY(toY);
+			return true;
+		}
+		
+		else if (this.isValid(toX,  toY) == "Eat")
+		{
+			//Method Eat to Do, ref Player "Killed Pieces"
+			return true;
+		}
 		return false;
 	}
 }

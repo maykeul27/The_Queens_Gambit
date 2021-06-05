@@ -2,7 +2,7 @@ package chess;
 
 public class Case {
 	
-	private Pieces pieceInPlace;
+	private Piece pieceInPlace;
 	private String color;
 	
 	public Case(String color) {
@@ -10,12 +10,12 @@ public class Case {
 		
     }
 	
-	public Pieces getPieceInPlace() {
+	public Piece getPieceInPlace() {
 		return pieceInPlace;
 		
 	}
 	
-	public void setPieceInPlace(Pieces pieceToPlace) {
+	public void setPieceInPlace(Piece pieceToPlace) {
 		pieceInPlace = pieceToPlace;
 		return; 
 	}

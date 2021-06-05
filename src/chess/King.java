@@ -1,7 +1,7 @@
 package chess;
 
 
-public class King extends Pieces {
+public class King extends Piece {
 	
 	boolean echec;
 
