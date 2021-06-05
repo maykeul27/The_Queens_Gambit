@@ -10,105 +10,80 @@ public class Rook extends Piece {
 
 	}
 	
-	public boolean deplacementTourValide(int x, int y) {
+	public String isValid(int toX, int toY) {
 		
-		if (this.getX() != x && this.getY() == y) {    //Deplacement Latéraux
+		int lineDiff= toX - getX();
+		int columnDiff= toY - getY();
+		int unityLineDiff;
+		int unityColumnDiff; 
+		String res;
+		if (lineDiff == 0) {
 			
-			if(this.getX() > x) {           //Gauche vers la Droite
-				
-				for(int i = this.getX() + 1; i <= x; i++) {
-					
-					if(PLATEAU.isEmpty(i, y)) {
-						
-						return true;
-					}
-					else {
-						return false;
-						
-					}
+			unityColumnDiff = columnDiff/Math.abs(columnDiff);
+			unityLineDiff = 0; 
+		}
+		else if(columnDiff == 0) {
+			
+			unityColumnDiff = 0; 
+			unityLineDiff = lineDiff/Math.abs(lineDiff);
+		}
+		else {
+			res = "Can\'t";
+			return res;
+		}
+		
+		
+		if  (!super.isValid(getX(), getY(), toX, toY))
+		{
+			res = "Can\'t";
+			return res;
+		}
+		
+		while((lineDiff != 0) && (columnDiff != 0)) {
+			
+			Piece nextPiece = (PLATEAU.getCase(getX() + unityLineDiff, getY() + unityColumnDiff)).getPieceInPlace();
+			if (nextPiece != null)
+			{
+				if (nextPiece.getColor() == this.getColor())
+				{
+					res= "Can\'t";
+					return res;
 				}
-				
-			}	
-			
-			if(this.getX() < x) {			//Droite vers la Gauche
-				
-				for(int i = this.getX() - 1; i >= x; i--) {
-					
-					if(PLATEAU.isEmpty(i, y)) {
-						
-						return true;
-					}
-					else {
-						return false;
-						
-					}
-				}
-				
-			}			
-			
+				res= "Eat";
+				return res;
+			}
+			lineDiff= lineDiff - unityLineDiff;
+			columnDiff= columnDiff - unityColumnDiff;
 			
 		}
 		
-		if(this.getX() == x && this.getY() != y) {  	//Deplacements verticaux
-			
-			if(this.getY() > y) {			//Haut vers le Bas
-				
-				for(int i = this.getY() + 1; i <= y; i++) {
-					
-					if(PLATEAU.isEmpty(x, i)) {
-						
-						return true;
-					}
-					else {
-						return false;
-						
-					}
-				}
-				
-			}	
-			
-			if(this.getY() < y) {		//Bas vers le Haut
-				
-				for(int i = this.getY() - 1; i >= y; i--) {
-					
-					if(PLATEAU.isEmpty(x, i)) {
-						
-						return true;
-					}
-					else {
-						return false;
-						
-					}
-				}
-				
-			}			
-			
-			
-		}
+		res = "Clear";
+		return res;		
+	}
+
+	
+	public boolean toMove(int toX, int toY) {
 		
-		if( this.getX() == x && this.getY() == y) {
-			
+		if (this.isValid(toX, toY) == "Can\'t")
+		{
 			return false;
-			
 		}
 		
+		else if (this.isValid(toX,  toY) == "Clear")
+		{
+			this.setX(toX);
+			this.setY(toY);
+			return true;
+		}
 		
+		else if (this.isValid(toX,  toY) == "Eat")
+		{
+			//Method Eat to Do, ref Player "Killed Pieces"
+			return true;
+		}
 		return false;
-		
 	}
-
-	@Override
-	public boolean toMove(int x, int y) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-		
-		
-		
 }
-	
-	
-
 	
 
 

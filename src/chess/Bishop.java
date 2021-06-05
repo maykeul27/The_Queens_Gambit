@@ -13,7 +13,6 @@ public class Bishop extends Piece {
 		int columnDiff= toY - getY();
 		int unityLineDiff= lineDiff/Math.abs(lineDiff);
 		int unityColumnDiff= columnDiff/Math.abs(columnDiff);
-		Piece nextPiece = (PLATEAU.getCase(getX() + unityLineDiff, getY() + unityColumnDiff)).getPieceInPlace();
 		String res;
 		 
 		if  (!super.isValid(getX(), getY(), toX, toY))
@@ -22,8 +21,9 @@ public class Bishop extends Piece {
 			return res;
 		}
 		
-		while ((lineDiff > 0) && (columnDiff > 0))
+		while((lineDiff != 0) && (columnDiff != 0)) 
 		{
+			Piece nextPiece = (PLATEAU.getCase(getX() + unityLineDiff, getY() + unityColumnDiff)).getPieceInPlace();
 			if (nextPiece != null)
 				{
 					if (nextPiece.getColor() == this.getColor())

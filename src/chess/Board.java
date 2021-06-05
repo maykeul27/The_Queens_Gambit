@@ -68,26 +68,6 @@ public class Board {
 		 
 	 }
 	 
-	 public boolean isEmpty(int x, int y) {
-		 
-		 
-		 if(x > 7 || y > 7 || x < 0 || y < 0) {
-			 
-			 return false;
-		 }
-		 else {
-			 
-		 
-			 if(board[x][y] == null) {
-				 return true;
-			 }
-			 else {
-				 return false;
-			 }
-		 
-		 
-		 }
-		 
-	 }
+	 
 
 }
