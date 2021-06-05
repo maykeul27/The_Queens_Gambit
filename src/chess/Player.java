@@ -1,7 +1,7 @@
 package chess;
 
 
-public class Player {
+public class Player { //Still need to Add Exception TRY CATCH everywhere
 
     private String name;
     private Piece[] killedPieces;

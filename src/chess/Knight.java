@@ -1,7 +1,7 @@
 package chess;
 import java.util.ArrayList;
 
-public class Knight extends Piece {
+public class Knight extends Piece { //Still need to Add Exception TRY CATCH everywhere + Need to transform toMove in a class for all pieces in Pieces Class
 
 	
 	public Knight(int x, int y, String color) {

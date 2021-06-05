@@ -1,6 +1,6 @@
 package chess;
 
-public class Pawn extends Piece {
+public class Pawn extends Piece { //Still need to Add Exception TRY CATCH everywhere + Need to transform toMove in a class for all pieces in Pieces Class
 	
 	private boolean firstAttempt = true;
 

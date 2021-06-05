@@ -7,7 +7,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.MouseListener;
 
-public class Game extends JPanel{
+public class Game extends JPanel{ //Still need to Add Exception TRY CATCH everywhere
 
 	private static final long serialVersionUID = 1L;
 	private Board board;

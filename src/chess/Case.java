@@ -1,6 +1,6 @@
 package chess;
 
-public class Case {
+public class Case { //Still need to Add Exception TRY CATCH everywhere
 	
 	private Piece pieceInPlace;
 	private String color;

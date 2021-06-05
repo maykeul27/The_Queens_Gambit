@@ -1,6 +1,6 @@
 package chess;
 
-public class Turn {
+public class Turn { //Still need to Add Exception TRY CATCH everywhere
 
 	public Turn() {
 		// TODO Auto-generated constructor stub

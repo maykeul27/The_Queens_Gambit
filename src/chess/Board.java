@@ -1,7 +1,7 @@
 package chess;
 
 
-public class Board {
+public class Board { //Still need to Add Exception TRY CATCH everywhere
 	
 	private static int lines = 8;
     private static int columns = 8;
@@ -34,7 +34,7 @@ public class Board {
 		 Case res = board[x][y];
 		 
 		 return res;
-	 } //Add Exception TRY CATCH
+	 } //Still need to Add Exception TRY CATCH
 	 
 	 public void piecesPlacement() {
 		 

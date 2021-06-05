@@ -1,7 +1,7 @@
 package chess;
 
 
-public class King extends Piece {
+public class King extends Piece { //Still need to Add Exception TRY CATCH everywhere + Need to transform toMove in a class for all pieces in Pieces Class
 	
 	boolean echec;
 
@@ -16,53 +16,83 @@ public class King extends Piece {
 		return echec;
 	}
 	
-
-	public boolean isValid(int x, int y, int toX, int toY){
+	public void setEchec(boolean life) {
+		this.echec = life;
+	}
+	
+	public String isValid(int toX, int toY) {
 		
-		if  (!super.isValid(x, y, toX, toY))
+		String res;
+		int lineDiff= toX - getX();
+		int columnDiff= toY - getY();
+		
+		if  (!super.isValid(getX(), getY(), toX, toY))
 		{
-			return false;
+			res = "Can\'t";
+			return res;
 		}
 		
-		else if ((Math.abs(x-toX) != 1 ) || (Math.abs(y-toY) != 1 ))
+		else if ((Math.abs(lineDiff) != 1 ) || (Math.abs(columnDiff) != 1 ))
 		{
-			return false;
+			res = "Can\'t";
+			return res;
 		}
 		
-		return true;
+		int unityLineDiff;
+		int unityColumnDiff; 
+		if (lineDiff == 0) {
+			
+			unityColumnDiff = columnDiff/Math.abs(columnDiff);
+			unityLineDiff = 0; 
+		}
+		else if(columnDiff == 0) {
+			
+			unityColumnDiff = 0; 
+			unityLineDiff = lineDiff/Math.abs(lineDiff);
+		}
+		else {
+			unityLineDiff= lineDiff/Math.abs(lineDiff);
+			unityColumnDiff= columnDiff/Math.abs(columnDiff);
+		}
+		
+		Piece nextPiece = (PLATEAU.getCase(getX() + unityLineDiff, getY() + unityColumnDiff)).getPieceInPlace();
+		
+		if (nextPiece != null)
+		{
+			if (nextPiece.getColor() == this.getColor())
+			{
+				res= "Can\'t";
+				return res;
+			}
+			res= "Eat";
+			return res;
+		}
+		
+		res = "Clear";
+		return res;		
 	}
 
-	@Override
-	public boolean toMove(int x, int y) {
-		// TODO Auto-generated method stub
+	
+	public boolean toMove(int toX, int toY) {
+		
+		if (this.isValid(toX, toY) == "Can\'t")
+		{
+			return false;
+		}
+		
+		else if (this.isValid(toX,  toY) == "Clear")
+		{
+			this.setX(toX);
+			this.setY(toY);
+			return true;
+		}
+		
+		else if (this.isValid(toX,  toY) == "Eat")
+		{
+			//Method Eat to Do, ref Player "Killed Pieces"
+			return true;
+		}
 		return false;
 	}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		/*else if ((PLATEAU.isEmpty(this.x + 1, this.y)) || (PLATEAU.isEmpty(this.x - 1, this.y))) {     // Horizontal moves
-			
-			return true;
-		}
-				
-		if((PLATEAU.isEmpty(this.x, this.y + 1)) || (PLATEAU.isEmpty(this.x, this.y - 1))) {	  // Vertical moves
-			
-			return true;			
-		}
-		
-		if((PLATEAU.isEmpty(this.x+1, this.y+1)) || (PLATEAU.isEmpty(this.x+1, this.y-1)) || (PLATEAU.isEmpty(this.x-1, this.y+1)) || (PLATEAU.isEmpty(this.x-1, this.y-1))) {		// Diagonal moves
-			
-			return true;
-		}
-		
-		return false;*/
-		
-		
-		
-	}
+	
+}

@@ -1,6 +1,6 @@
 package chess;
 
-public class Bishop extends Piece {
+public class Bishop extends Piece { //Still need to Add Exception TRY CATCH everywhere + Need to transform toMove in a class for all pieces in Pieces Class
 
 
 	public Bishop(int x, int y, String color) {

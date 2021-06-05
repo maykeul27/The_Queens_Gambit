@@ -1,7 +1,7 @@
 package chess;
 
 
-public abstract class Piece {
+public abstract class Piece { //Still need to Add Exception TRY CATCH everywhere + Need to transform toMove in a class for all pieces in Pieces Class
 	
 	private String name;
 	private String color;
