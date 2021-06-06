@@ -1,4 +1,4 @@
-package chess;
+package chess; //We will use Case[x][y] for all the code even if we know that it is Case[y][x] in reality
 
 public class Case { //Still need to Add Exception TRY CATCH everywhere
 	

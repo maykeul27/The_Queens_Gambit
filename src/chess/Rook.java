@@ -1,4 +1,4 @@
-package chess;
+package chess; //We will use Case[x][y] for all the code even if we know that it is Case[y][x] in reality
 
 
 public class Rook extends Piece { //Still need to Add Exception TRY CATCH everywhere + Need to transform toMove in a class for all pieces in Pieces Class
