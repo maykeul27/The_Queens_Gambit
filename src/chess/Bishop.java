@@ -59,6 +59,8 @@ public class Bishop extends Piece { //Still need to Add Exception TRY CATCH ever
 		else if (this.isValid(toX,  toY) == "Eat")
 		{
 			//Method Eat to Do, ref Player "Killed Pieces"
+			Piece pieceToEat = (PLATEAU.getCase(toX, toY)).getPieceInPlace();
+			this.eatPiece(pieceToEat);
 			return true;
 		}
 		return false;

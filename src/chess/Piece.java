@@ -64,6 +64,15 @@ public abstract class Piece { //Still need to Add Exception TRY CATCH everywhere
 	public void setX(int x) {
 		this.x = x;
 	}
+	
+	public void eatPiece(Piece pieceToEat) {
+		
+		int x = pieceToEat.getX();
+		int y = pieceToEat.getY();
+		pieceToEat = null ;
+		this.setX(x);
+		this.setY(y);	
+	}
 
 	public boolean isValid(int x, int y, int toX, int toY){
         if(toX == x && toY == y)
