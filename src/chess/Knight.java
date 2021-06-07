@@ -8,10 +8,8 @@ public class Knight extends Piece { //Still need to Add Exception TRY CATCH ever
 		super(x, y, "Knight", color);
 
 	}
-
 	
 	public String isValid(int toX, int toY){ 
-		
 		
 		ArrayList<Piece> pieceList = new ArrayList<Piece>();
 		Piece nextPiece0 = (PLATEAU.getCase(getX() + 1, getY() + 2)).getPieceInPlace();
@@ -31,39 +29,39 @@ public class Knight extends Piece { //Still need to Add Exception TRY CATCH ever
 		pieceList.add(nextPiece5);
 		pieceList.add(nextPiece6);
 		pieceList.add(nextPiece7);
+		
 		String res;
-		 
-		if  (!super.isValid(getX(), getY(), toX, toY))
+		
+		if  (super.isValid(toX, toY) == "Can\'t")
 		{
 			res = "Can\'t";
 			return res;
 		}
 		
-		for(int i = 0 ; i < pieceList.size(); i++) {
-			
-			if ((pieceList.get(i).getX() == toX) && (pieceList.get(i).getY() == toY)) {
+		else
+		{
+			for(int i = 0 ; i < pieceList.size(); i++) {
 				
-				if (pieceList.get(i) != null)
-				{
-					if (pieceList.get(i).getColor() == this.getColor())
+				if ((pieceList.get(i).getX() == toX) && (pieceList.get(i).getY() == toY)) {
+					
+					if (pieceList.get(i) != null)
 					{
-						res= "Can\'t";
+						if (pieceList.get(i).getColor() == this.getColor())
+						{
+							res= "Can\'t";
+							return res;
+						}
+						res= "Eat";
 						return res;
 					}
-					res= "Eat";
+					else {
+					res = "Clear";
 					return res;
-				}
-				else {
-				res = "Clear";
-				return res;
-				}
-			}	
+					}
+				}	
+			}
+			res = "Can\'t";
+			return res;
 		}
-		
-		res = "Can\'t";
-		return res;
-			   
-		
 	}
-
 }
