@@ -66,26 +66,4 @@ public class Knight extends Piece { //Still need to Add Exception TRY CATCH ever
 		
 	}
 
-
-	public boolean toMove(int toX, int toY) {
-		
-		if (this.isValid(toX, toY) == "Can\'t")
-		{
-			return false;
-		}
-		
-		else if (this.isValid(toX,  toY) == "Clear")
-		{
-			this.setX(toX);
-			this.setY(toY);
-			return true;
-		}
-		
-		else if (this.isValid(toX,  toY) == "Eat")
-		{
-			//Method Eat to Do, ref Player "Killed Pieces"
-			return true;
-		}
-		return false;
-	}
 }

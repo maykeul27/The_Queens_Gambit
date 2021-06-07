@@ -16,7 +16,28 @@ public abstract class Piece { //Still need to Add Exception TRY CATCH everywhere
 		this.color = color;
 	}
 	
-	public abstract boolean toMove(int x, int y);
+	public boolean toMove(int toX, int toY) {
+		
+		if (this.isValid(toX, toY) == "Can\'t")
+		{
+			return false;
+		}
+		
+		else if (this.isValid(toX,  toY) == "Clear")
+		{
+			this.setX(toX);
+			this.setY(toY);
+			return true;
+		}
+		
+		else if (this.isValid(toX,  toY) == "Eat")
+		{
+			PLATEAU.getCase(toX, toY).setPieceInPlace(this);
+			PLATEAU.getCase(getX(), getY()).setPieceToNull();
+			return true;
+		}
+		return false;
+	}
 	
 	public String getname() {
 		return name;
@@ -65,21 +86,13 @@ public abstract class Piece { //Still need to Add Exception TRY CATCH everywhere
 		this.x = x;
 	}
 	
-	public void eatPiece(Piece pieceToEat) {
-		
-		int x = pieceToEat.getX();
-		int y = pieceToEat.getY();
-		pieceToEat = null ;
-		this.setX(x);
-		this.setY(y);	
-	}
 
-	public boolean isValid(int x, int y, int toX, int toY){
-        if(toX == x && toY == y)
-            return false;
+	public String isValid(int toX, int toY){
+        if(toX == getX() && toY == getY())
+            return "Can\'t";
         if(toX > 7 || toY > 7 || toX < 0 || toY < 0)
-            return false;
-        return true;
+        	return "Can\'t";
+        return "Ok";
         //Appartient-elle à un joueur
     }
 }

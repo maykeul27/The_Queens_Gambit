@@ -30,91 +30,89 @@ public class Pawn extends Piece { //Still need to Add Exception TRY CATCH everyw
 	
 	public String isValid(int toX, int toY) {
 		
-		int lineDiff= toX - getX();
-		int columnDiff= toY - getY();
-		int unityLineDiff;
-		int unityColumnDiff; 
 		String res;
 		
-		
-		if  (!super.isValid(getX(), getY(), toX, toY))
+		if  (super.isValid(toX, toY) == "Can\'t")
 		{
 			res = "Can\'t";
 			return res;
 		}
 		
-		if (columnDiff == 0) {
+		else
+		{
+			int lineDiff= toX - getX();
+			int columnDiff= toY - getY();
+			int unityLineDiff = lineDiff/Math.abs(lineDiff);
+			int unityColumnDiff; 
 			
-			unityLineDiff = lineDiff/Math.abs(lineDiff);
-			unityColumnDiff = 0;
-			
-			if ((lineDiff == 1 || lineDiff == -1)) {
+			if (columnDiff == 0) {
 				
-				Piece nextPiece = (PLATEAU.getCase(getX() + unityLineDiff, getY() + unityColumnDiff)).getPieceInPlace();
-				if (nextPiece != null)
+				unityColumnDiff = 0;
+				
+				if ((lineDiff == 1 || lineDiff == -1)) 
 				{
-						res= "Can\'t";
-						return res;
-				}
-				
-				firstAttempt = false;
-				res = "Clear";
-				return res;
-				
-			}
-			
-			else if(firstAttempt == true && (lineDiff == 2 || lineDiff == -2)) {
-				
-				while((lineDiff != 0) && (columnDiff != 0)) {
 					
-					Piece nextPiece = (PLATEAU.getCase(getX() + unityLineDiff, getY() + unityColumnDiff)).getPieceInPlace();
+					Piece nextPiece = (PLATEAU.getCase(getX() + unityLineDiff, getY())).getPieceInPlace();
 					if (nextPiece != null)
 					{
 							res= "Can\'t";
 							return res;
 					}
 					
-					lineDiff= lineDiff - unityLineDiff;
-					columnDiff= columnDiff - unityColumnDiff;
+					firstAttempt = false;
+					res = "Clear";
+					return res;
 					
 				}
 				
-				firstAttempt = false;
-				res = "Clear";
-				return res;
-				
-				
-			}
-			
-			else {
-				
-				res = "Can\'t";
-				return res;
-			}
-			
-			
-		}
-			
-		else{
-			
-			unityColumnDiff = columnDiff/Math.abs(columnDiff);
-			unityLineDiff = lineDiff/Math.abs(lineDiff);
-			Piece nextPiece = (PLATEAU.getCase(getX() + unityLineDiff, getY() + unityColumnDiff)).getPieceInPlace();
-			if (nextPiece != null)
-			{
-				if (nextPiece.getColor() == this.getColor())
+				else if(firstAttempt == true && (lineDiff == 2 || lineDiff == -2)) 
 				{
-					res= "Can\'t";
+					
+					while(lineDiff != 0) {
+						
+						Piece nextPiece = (PLATEAU.getCase(getX() + unityLineDiff, getY())).getPieceInPlace();
+						if (nextPiece != null)
+						{
+								res= "Can\'t";
+								return res;
+						}
+						
+						lineDiff= lineDiff - unityLineDiff;
+					}
+					
+					firstAttempt = false;
+					res = "Clear";
+					return res;
+					
+				}
+				
+				else 
+				{
+					
+					res = "Can\'t";
 					return res;
 				}
-				res= "Eat";
-				return res;
+				
 			}
-			
-			res = "Can\'t";
-			return res;
-			
+				
+			else{
+				
+				unityColumnDiff = columnDiff/Math.abs(columnDiff);
+				Piece nextPiece = (PLATEAU.getCase(getX() + unityLineDiff, getY() + unityColumnDiff)).getPieceInPlace();
+				if (nextPiece != null)
+				{
+					if (nextPiece.getColor() == this.getColor())
+					{
+						res= "Can\'t";
+						return res;
+					}
+					res= "Eat";
+					return res;
+				}
+			}
 		}
+		res= "Can\'t";
+		return res;
 	}
 
 
