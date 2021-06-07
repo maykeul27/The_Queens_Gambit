@@ -1,4 +1,4 @@
-package chess;
+package chess; 
 
 
 public class Player { //Still need to Add Exception TRY CATCH everywhere
@@ -36,14 +36,6 @@ public class Player { //Still need to Add Exception TRY CATCH everywhere
 	 */
 	public void setKilledPieces(Piece[] killedPieces) {
 		this.killedPieces = killedPieces;
-	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

@@ -30,68 +30,88 @@ public class Pawn extends Piece { //Still need to Add Exception TRY CATCH everyw
 	
 	public String isValid(int toX, int toY) {
 		
-		int lineDiff= toX - getX();
-		int columnDiff= toY - getY();
-		int unityLineDiff= lineDiff/Math.abs(lineDiff);
-		int unityColumnDiff= columnDiff/Math.abs(columnDiff);
 		String res;
-		Piece nextPiece = (PLATEAU.getCase(getX() + unityLineDiff, getY())).getPieceInPlace();
-		Piece nextDiagonalPiece = (PLATEAU.getCase(getX() + unityLineDiff, getY() + unityColumnDiff)).getPieceInPlace();
 		
-		if  (!super.isValid(getX(), getY(), toX, toY))
+		if  (super.isValid(toX, toY) == "Can\'t")
 		{
 			res = "Can\'t";
 			return res;
 		}
 		
-		if(toY == nextPiece.getY() && toX == nextPiece.getX()) {
-			if (nextPiece != null)
-			{
-					res= "Can\'t";
-					return res;
-			}
-		}
-		
-		else if(toY == nextDiagonalPiece.getY() && toX == nextDiagonalPiece.getX()) {
+		else
+		{
+			int lineDiff= toX - getX();
+			int columnDiff= toY - getY();
+			int unityLineDiff = lineDiff/Math.abs(lineDiff);
+			int unityColumnDiff; 
 			
-			if (nextDiagonalPiece != null) {
+			if (columnDiff == 0) {
 				
-				if (nextDiagonalPiece.getColor() == this.getColor())
+				unityColumnDiff = 0;
+				
+				if ((lineDiff == 1 || lineDiff == -1)) 
 				{
-					res= "Can\'t";
+					
+					Piece nextPiece = (PLATEAU.getCase(getX() + unityLineDiff, getY())).getPieceInPlace();
+					if (nextPiece != null)
+					{
+							res= "Can\'t";
+							return res;
+					}
+					
+					firstAttempt = false;
+					res = "Clear";
+					return res;
+					
+				}
+				
+				else if(firstAttempt == true && (lineDiff == 2 || lineDiff == -2)) 
+				{
+					
+					while(lineDiff != 0) {
+						
+						Piece nextPiece = (PLATEAU.getCase(getX() + unityLineDiff, getY())).getPieceInPlace();
+						if (nextPiece != null)
+						{
+								res= "Can\'t";
+								return res;
+						}
+						
+						lineDiff= lineDiff - unityLineDiff;
+					}
+					
+					firstAttempt = false;
+					res = "Clear";
+					return res;
+					
+				}
+				
+				else 
+				{
+					
+					res = "Can\'t";
 					return res;
 				}
-				res= "Eat";
+				
+			}
+				
+			else{
+				
+				unityColumnDiff = columnDiff/Math.abs(columnDiff);
+				Piece nextPiece = (PLATEAU.getCase(getX() + unityLineDiff, getY() + unityColumnDiff)).getPieceInPlace();
+				if (nextPiece != null)
+				{
+					if (nextPiece.getColor() == this.getColor())
+					{
+						res= "Can\'t";
+						return res;
+					}
+					res= "Eat";
+					return res;
+				}
+				res= "Can\'t";
 				return res;
 			}
-			
 		}
-		
-		res = "Can\'t";
-		return res;
-	
-	}
-
-
-	public boolean toMove(int toX, int toY) {
-		
-		if (this.isValid(toX, toY) == "Can\'t")
-		{
-			return false;
-		}
-		
-		else if (this.isValid(toX,  toY) == "Clear")
-		{
-			this.setX(toX);
-			this.setY(toY);
-			return true;
-		}
-		
-		else if (this.isValid(toX,  toY) == "Eat")
-		{
-			//Method Eat to Do, ref Player "Killed Pieces"
-			return true;
-		}
-		return false;
 	}
 }

@@ -1,4 +1,4 @@
-package chess;
+package chess; //We will use Case[x][y] for all the code even if we know that it is Case[y][x] in reality
 
 
 public abstract class Piece { //Still need to Add Exception TRY CATCH everywhere + Need to transform toMove in a class for all pieces in Pieces Class
@@ -16,7 +16,28 @@ public abstract class Piece { //Still need to Add Exception TRY CATCH everywhere
 		this.color = color;
 	}
 	
-	public abstract boolean toMove(int x, int y);
+	public boolean toMove(int toX, int toY) {
+		
+		if (this.isValid(toX, toY) == "Can\'t")
+		{
+			return false;
+		}
+		
+		else if (this.isValid(toX,  toY) == "Clear")
+		{
+			this.setX(toX);
+			this.setY(toY);
+			return true;
+		}
+		
+		else if (this.isValid(toX,  toY) == "Eat")
+		{
+			PLATEAU.getCase(toX, toY).setPieceInPlace(this);
+			PLATEAU.getCase(getX(), getY()).setPieceToNull();
+			return true;
+		}
+		return false;
+	}
 	
 	public String getname() {
 		return name;
@@ -64,13 +85,14 @@ public abstract class Piece { //Still need to Add Exception TRY CATCH everywhere
 	public void setX(int x) {
 		this.x = x;
 	}
+	
 
-	public boolean isValid(int x, int y, int toX, int toY){
-        if(toX == x && toY == y)
-            return false;
+	public String isValid(int toX, int toY){
+        if(toX == getX() && toY == getY())
+            return "Can\'t";
         if(toX > 7 || toY > 7 || toX < 0 || toY < 0)
-            return false;
-        return true;
+        	return "Can\'t";
+        return "Ok";
         //Appartient-elle à un joueur
     }
 }
