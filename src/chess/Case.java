@@ -2,7 +2,7 @@ package chess; //We will use Case[x][y] for all the code even if we know that it
 
 public class Case { //Still need to Add Exception TRY CATCH everywhere
 	
-	private Piece pieceInPlace;
+	private Piece pieceInPlace = null;
 	private String color;
 	
 	public Case(String color) {
@@ -16,8 +16,7 @@ public class Case { //Still need to Add Exception TRY CATCH everywhere
 	}
 	
 	public void setPieceInPlace(Piece pieceToPlace) {
-		pieceInPlace = pieceToPlace;
-		return; 
+		this.pieceInPlace = pieceToPlace;
 	}
 	
 	public void setPieceToNull()

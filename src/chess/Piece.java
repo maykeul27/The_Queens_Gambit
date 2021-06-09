@@ -7,6 +7,7 @@ public abstract class Piece { //Still need to Add Exception TRY CATCH everywhere
 	private String color;
 	private int x;
 	private int y;
+	private String its_me;
 	protected static final Board PLATEAU = new Board();
 	
 	public Piece(int x, int y, String name, String color) {
@@ -16,7 +17,9 @@ public abstract class Piece { //Still need to Add Exception TRY CATCH everywhere
 		this.color = color;
 	}
 	
-	public boolean toMove(int toX, int toY) {
+	public abstract boolean toMove(int toX, int toY);
+	
+	/*public boolean toMove(int toX, int toY) {
 		
 		if (this.isValid(toX, toY) == "Can\'t")
 		{
@@ -37,7 +40,7 @@ public abstract class Piece { //Still need to Add Exception TRY CATCH everywhere
 			return true;
 		}
 		return false;
-	}
+	}*/
 	
 	public String getname() {
 		return name;
@@ -95,4 +98,18 @@ public abstract class Piece { //Still need to Add Exception TRY CATCH everywhere
         return "Ok";
         //Appartient-elle � un joueur
     }
+	
+	/**
+	 * @return the its_me
+	 */
+	public String getIts_me() {
+		return its_me;
+	}
+
+	/**
+	 * @param its_me the its_me to set
+	 */
+	public void setIts_me(String its_me) {
+		this.its_me = its_me;
+	}
 }

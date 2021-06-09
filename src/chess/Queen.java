@@ -61,4 +61,27 @@ public class Queen extends Piece { //Still need to Add Exception TRY CATCH every
 			return res;		
 		}
 	}
+	
+	public boolean toMove(int toX, int toY) {
+		
+		if (this.isValid(toX, toY) == "Can\'t")
+		{
+			return false;
+		}
+		
+		else if (this.isValid(toX,  toY) == "Clear")
+		{
+			this.setX(toX);
+			this.setY(toY);
+			return true;
+		}
+		
+		else if (this.isValid(toX,  toY) == "Eat")
+		{
+			PLATEAU.getCase(getX(), getY()).setPieceToNull();
+			PLATEAU.getCase(toX, toY).setPieceInPlace(this);
+			return true;
+		}
+		return false;
+	}
 }
