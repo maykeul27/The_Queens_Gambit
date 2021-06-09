@@ -59,7 +59,7 @@ public class Board { //Still need to Add Exception TRY CATCH everywhere
 			 board[linePieces][6].setPieceInPlace(new Knight(linePieces, 6, color));
 			 board[linePieces][7].setPieceInPlace(new Rook(linePieces, 7, color));
 			 	 
-			 for(int a = 0; a < 7; a++) {
+			 for(int a = 0; a <= 7; a++) {
 				 board[linePawn][a].setPieceInPlace(new Pawn(linePawn, a, color));
 			 }
 			 color = "white";

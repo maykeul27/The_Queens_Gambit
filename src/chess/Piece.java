@@ -93,6 +93,6 @@ public abstract class Piece { //Still need to Add Exception TRY CATCH everywhere
         if(toX > 7 || toY > 7 || toX < 0 || toY < 0)
         	return "Can\'t";
         return "Ok";
-        //Appartient-elle à un joueur
+        //Appartient-elle ï¿½ un joueur
     }
 }

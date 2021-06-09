@@ -59,7 +59,7 @@ public class Pawn extends Piece { //Still need to Add Exception TRY CATCH everyw
 							return res;
 					}
 					
-					firstAttempt = false;
+					firstAttempt = false; // need to put it in toMove because if move is not valid, firstAttempt still = false
 					res = "Clear";
 					return res;
 					
@@ -80,7 +80,7 @@ public class Pawn extends Piece { //Still need to Add Exception TRY CATCH everyw
 						lineDiff= lineDiff - unityLineDiff;
 					}
 					
-					firstAttempt = false;
+					firstAttempt = false; // need to put it in toMove because if move is not valid, firstAttempt still = false
 					res = "Clear";
 					return res;
 					
