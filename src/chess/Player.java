@@ -1,13 +1,14 @@
 package chess; 
 
+//Still need to add comment on all methods for java doc + add TRY Catch everywhere
 
-public class Player { //Still need to Add Exception TRY CATCH everywhere
+public class Player { 
 
     private String name;
     private Piece[] killedPieces;
     
 	public Player() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	/**

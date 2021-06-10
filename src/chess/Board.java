@@ -1,7 +1,8 @@
 package chess; //We will use Case[x][y] for all the code even if we know that it is Case[y][x] in reality
 
+//Still need to add comment on all methods for java doc + add TRY Catch everywhere
 
-public class Board { //Still need to Add Exception TRY CATCH everywhere
+public class Board { 
 	
 	private static int lines = 8;
     private static int columns = 8;
@@ -18,10 +19,10 @@ public class Board { //Still need to Add Exception TRY CATCH everywhere
 			 {
 				 if ((i+j)%2 == 0)
 				 {
-					 board[i][j] = new Case("black"); //Too use Later IHM?
+					 board[i][j] = new Case("black"); 
 				 } else
 				 {
-					 board[i][j] = new Case("white"); //Too use Later IHM?
+					 board[i][j] = new Case("white"); 
 				 }
 			 }
 		 }
@@ -34,7 +35,7 @@ public class Board { //Still need to Add Exception TRY CATCH everywhere
 		 Case res = board[x][y];
 		 
 		 return res;
-	 } //Still need to Add Exception TRY CATCH
+	 } 
 	 
 	 public void piecesPlacement() {
 		 

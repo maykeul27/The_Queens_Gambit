@@ -1,6 +1,8 @@
 package chess;
 
-public class Turn { //Still need to Add Exception TRY CATCH everywhere
+//Still need to add comment on all methods for java doc + add TRY Catch everywhere
+
+public class Turn { 
 
 	public Turn() {
 		// TODO Auto-generated constructor stub

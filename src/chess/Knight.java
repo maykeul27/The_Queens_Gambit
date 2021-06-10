@@ -1,7 +1,9 @@
 package chess; //We will use Case[x][y] for all the code even if we know that it is Case[y][x] in reality
 import java.util.ArrayList;
 
-public class Knight extends Piece { //Still need to Add Exception TRY CATCH everywhere + Need to transform toMove in a class for all pieces in Pieces Class
+//Still need to add comment on all methods for java doc + add TRY Catch everywhere
+
+public class Knight extends Piece { 
 
 	
 	public Knight(int x, int y, String color) {
@@ -116,6 +118,7 @@ public class Knight extends Piece { //Still need to Add Exception TRY CATCH ever
 			
 		}
 		
+		
 		String res;
 		
 		if  (super.isValid(toX, toY) == "Can\'t")
@@ -128,11 +131,6 @@ public class Knight extends Piece { //Still need to Add Exception TRY CATCH ever
 		{
 			for(int i = 0 ; i < pieceList.size(); i++) {
 				
-				System.out.println(pieceList.get(i));
-				System.out.println(pieceList);
-				
-	
-					
 					if (pieceList.get(i) != null)
 					{
 						if (pieceList.get(i).getColor() == this.getColor())
@@ -147,7 +145,7 @@ public class Knight extends Piece { //Still need to Add Exception TRY CATCH ever
 					res = "Clear";
 					return res;
 					}
-				}	
+				}
 			
 			res = "Can\'t";
 			return res;
@@ -155,26 +153,30 @@ public class Knight extends Piece { //Still need to Add Exception TRY CATCH ever
 	}
 
 	
-	public void toMove(int toX, int toY) {
+	public boolean toMove(int toX, int toY) {
 		
 		if (this.isValid(toX, toY) == "Can\'t")
 		{
-			
+			return false;
 		}
 		
 		else if (this.isValid(toX,  toY) == "Clear")
 		{
+			int oldX = getX();
+			int oldY = getY();
+			PLATEAU.getCase(toX, toY).setPieceInPlace(this);
 			this.setX(toX);
 			this.setY(toY);
-			
+			PLATEAU.getCase(oldX, oldY).setPieceToNull();
+			return true;
 		}
 		
 		else if (this.isValid(toX,  toY) == "Eat")
 		{
+			PLATEAU.getCase(toX, toY).setPieceInPlace((PLATEAU.getCase(getX(), getY())).getPieceInPlace());
 			PLATEAU.getCase(getX(), getY()).setPieceToNull();
-			PLATEAU.getCase(toX, toY).setPieceInPlace(this);
-			
+			return true;
 		}
-	
+		return false;
 	}
 }

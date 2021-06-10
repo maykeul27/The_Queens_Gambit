@@ -1,7 +1,8 @@
 package chess; //We will use Case[x][y] for all the code even if we know that it is Case[y][x] in reality
 
+// Still need to add comment on all methods for java doc + add TRY Catch everywhere
 
-public class Rook extends Piece { //Still need to Add Exception TRY CATCH everywhere + Need to transform toMove in a class for all pieces in Pieces Class
+public class Rook extends Piece { 
 
 
 	public Rook(int x, int y, String color) {
@@ -62,12 +63,11 @@ public class Rook extends Piece { //Still need to Add Exception TRY CATCH everyw
 		}
 	}
 	
-public void toMove(int toX, int toY) {
+	public boolean toMove(int toX, int toY) {
 		
 		if (this.isValid(toX, toY) == "Can\'t")
 		{
-			System.out.println("Tu ne peux pas aller là");
-			
+			return false;
 		}
 		
 		else if (this.isValid(toX,  toY) == "Clear")
@@ -75,30 +75,19 @@ public void toMove(int toX, int toY) {
 			int oldX = getX();
 			int oldY = getY();
 			PLATEAU.getCase(toX, toY).setPieceInPlace(this);
-			PLATEAU.getCase(oldX, oldY).setPieceToNull();
 			this.setX(toX);
-			System.out.println("La coordonnée Y de la pièce actuelle a été modifié pour :"+ getX());
 			this.setY(toY);
-			System.out.println("La coordonnée X de la pièce actuelle a été modifié pour :"+ getY());
-			
-			System.out.println("La case où se trouvait la pièce a bien été remise à pièce nulle. Pièce à la case d'avant = "+ PLATEAU.getCase(oldX, oldY).getPieceInPlace());
-			System.out.println("La case où se trouve actullement la pièce contient:" + PLATEAU.getCase(getX(), getY()).getPieceInPlace());
-			
+			PLATEAU.getCase(oldX, oldY).setPieceToNull();
+			return true;
 		}
 		
 		else if (this.isValid(toX,  toY) == "Eat")
 		{
-			int oldX = getX();
-			int oldY = getY();
 			PLATEAU.getCase(toX, toY).setPieceInPlace((PLATEAU.getCase(getX(), getY())).getPieceInPlace());
-			System.out.println("La pièce s'est bien déplacée en: "+ getX() + ","+ getY()+ " (nouvelles coordonnées de case destination).");
 			PLATEAU.getCase(getX(), getY()).setPieceToNull();
-			System.out.println("La case où se trouvait la pièce à bien été remise à pièce nulle. Pièce à la case d'avant = "+ PLATEAU.getCase(oldX, oldY).getPieceInPlace());
-			
+			return true;
 		}
-		
-	System.out.println(PLATEAU.getCase(getX() +1, getY()).getPieceInPlace() );
-	
+		return false;
 	}
 }
 	
