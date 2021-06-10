@@ -1,8 +1,10 @@
 package chess;
 
-public class Pawn extends Piece { //Still need to Add Exception TRY CATCH everywhere + Need to transform toMove in a class for all pieces in Pieces Class
+//Still need to add comment on all methods for java doc + add TRY Catch everywhere
+
+public class Pawn extends Piece {
 	
-	private boolean firstAttempt = true;
+	private boolean firstAttempt;
 
 	public Pawn(int x, int y, String color) {
 		super(x, y, "Pawn", color);
@@ -10,6 +12,7 @@ public class Pawn extends Piece { //Still need to Add Exception TRY CATCH everyw
 	}
 	
 	public boolean isFirstAttempt(){
+    	firstAttempt = true;
     	return this.firstAttempt;
     }
 	
@@ -59,7 +62,6 @@ public class Pawn extends Piece { //Still need to Add Exception TRY CATCH everyw
 							return res;
 					}
 					
-					firstAttempt = false; // need to put it in toMove because if move is not valid, firstAttempt still = false
 					res = "Clear";
 					return res;
 					
@@ -79,8 +81,7 @@ public class Pawn extends Piece { //Still need to Add Exception TRY CATCH everyw
 						
 						lineDiff= lineDiff - unityLineDiff;
 					}
-					
-					firstAttempt = false; // need to put it in toMove because if move is not valid, firstAttempt still = false
+			
 					res = "Clear";
 					return res;
 					
@@ -114,4 +115,34 @@ public class Pawn extends Piece { //Still need to Add Exception TRY CATCH everyw
 			}
 		}
 	}
+	
+	public boolean toMove(int toX, int toY) {
+		
+		if (this.isValid(toX, toY) == "Can\'t")
+		{
+			System.out.println("Tu ne peux pas aller l�");
+			return false;
+		}
+		
+		else if (this.isValid(toX,  toY) == "Clear")
+		{
+			int oldX = getX();
+			int oldY = getY();
+			PLATEAU.getCase(toX, toY).setPieceInPlace(this);
+			this.setX(toX);
+			this.setY(toY);
+			PLATEAU.getCase(oldX, oldY).setPieceToNull();
+			firstAttempt = false; 
+			return true;
+		}
+		
+		else if (this.isValid(toX,  toY) == "Eat")
+		{
+			PLATEAU.getCase(toX, toY).setPieceInPlace((PLATEAU.getCase(getX(), getY())).getPieceInPlace());
+			PLATEAU.getCase(getX(), getY()).setPieceToNull();
+			return true;
+		}
+		return false;
+	}
+
 }

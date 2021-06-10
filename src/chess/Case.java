@@ -1,13 +1,15 @@
 package chess; //We will use Case[x][y] for all the code even if we know that it is Case[y][x] in reality
 
-public class Case { //Still need to Add Exception TRY CATCH everywhere
+//Still need to add comment on all methods for java doc + add TRY Catch everywhere
+
+public class Case { 
 	
 	private Piece pieceInPlace;
 	private String color;
 	
 	public Case(String color) {
 		this.setColor(color);
-		
+		setPieceToNull();
     }
 	
 	public Piece getPieceInPlace() {
@@ -15,21 +17,14 @@ public class Case { //Still need to Add Exception TRY CATCH everywhere
 		
 	}
 	
+	
 	public void setPieceInPlace(Piece pieceToPlace) {
-		pieceInPlace = pieceToPlace;
-		return; 
+		this.pieceInPlace = pieceToPlace;
 	}
 	
 	public void setPieceToNull()
 	{
 		pieceInPlace = null;
-	}
-	
-	public boolean isOccupied() {
-		if (pieceInPlace == null)
-			return false;
-		else
-			return true;
 	}
 
 	/**

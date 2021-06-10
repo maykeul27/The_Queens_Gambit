@@ -1,7 +1,8 @@
 package chess; //We will use Case[x][y] for all the code even if we know that it is Case[y][x] in reality
 
+//Still need to add comment on all methods for java doc + add TRY Catch everywhere
 
-public abstract class Piece { //Still need to Add Exception TRY CATCH everywhere + Need to transform toMove in a class for all pieces in Pieces Class
+public abstract class Piece { 
 	
 	private String name;
 	private String color;
@@ -16,28 +17,8 @@ public abstract class Piece { //Still need to Add Exception TRY CATCH everywhere
 		this.color = color;
 	}
 	
-	public boolean toMove(int toX, int toY) {
-		
-		if (this.isValid(toX, toY) == "Can\'t")
-		{
-			return false;
-		}
-		
-		else if (this.isValid(toX,  toY) == "Clear")
-		{
-			this.setX(toX);
-			this.setY(toY);
-			return true;
-		}
-		
-		else if (this.isValid(toX,  toY) == "Eat")
-		{
-			PLATEAU.getCase(toX, toY).setPieceInPlace(this);
-			PLATEAU.getCase(getX(), getY()).setPieceToNull();
-			return true;
-		}
-		return false;
-	}
+	public abstract boolean toMove(int toX, int toY);
+	
 	
 	public String getname() {
 		return name;
@@ -93,6 +74,6 @@ public abstract class Piece { //Still need to Add Exception TRY CATCH everywhere
         if(toX > 7 || toY > 7 || toX < 0 || toY < 0)
         	return "Can\'t";
         return "Ok";
-        //Appartient-elle � un joueur
     }
+	
 }
