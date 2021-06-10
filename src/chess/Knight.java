@@ -12,23 +12,109 @@ public class Knight extends Piece { //Still need to Add Exception TRY CATCH ever
 	public String isValid(int toX, int toY){ 
 		
 		ArrayList<Piece> pieceList = new ArrayList<Piece>();
-		Piece nextPiece0 = (PLATEAU.getCase(getX() + 1, getY() + 2)).getPieceInPlace();
-		Piece nextPiece1 = (PLATEAU.getCase(getX() + 1, getY() - 2)).getPieceInPlace();
-		Piece nextPiece2 = (PLATEAU.getCase(getX() + 2, getY() + 1)).getPieceInPlace();
-		Piece nextPiece3 = (PLATEAU.getCase(getX() + 2, getY() - 1)).getPieceInPlace();
-		Piece nextPiece4 = (PLATEAU.getCase(getX() - 1, getY() + 2)).getPieceInPlace();
-		Piece nextPiece5 = (PLATEAU.getCase(getX() - 1, getY() - 2 )).getPieceInPlace();
-		Piece nextPiece6 = (PLATEAU.getCase(getX() - 2, getY() - 1)).getPieceInPlace();
-		Piece nextPiece7 = (PLATEAU.getCase(getX() - 2, getY() + 1)).getPieceInPlace();
 		
-		pieceList.add(nextPiece0);
-		pieceList.add(nextPiece1);
-		pieceList.add(nextPiece2);
-		pieceList.add(nextPiece3);
-		pieceList.add(nextPiece4);
-		pieceList.add(nextPiece5);
-		pieceList.add(nextPiece6);
-		pieceList.add(nextPiece7);
+		int x = this.getX();
+		int y = this.getY();
+		
+		if(x == 0) {
+			
+			if(y == 0) {
+				
+				Piece nextPiece2 = (PLATEAU.getCase(x + 2, y + 1)).getPieceInPlace();
+				Piece nextPiece0 = (PLATEAU.getCase(x + 1, y + 2)).getPieceInPlace();
+				
+				pieceList.add(nextPiece2);
+				pieceList.add(nextPiece0);
+			}
+			else if(y == 1) {
+				Piece nextPiece2 = (PLATEAU.getCase(x + 2, y + 1)).getPieceInPlace();
+				Piece nextPiece0 = (PLATEAU.getCase(x + 1, y + 2)).getPieceInPlace();
+				Piece nextPiece1 = (PLATEAU.getCase(x + 2, y - 1)).getPieceInPlace();
+				
+				pieceList.add(nextPiece2);
+				pieceList.add(nextPiece0);
+				pieceList.add(nextPiece1);				
+			}
+			else if(y == 7) {
+				Piece nextPiece2 = (PLATEAU.getCase(x + 2, y - 1)).getPieceInPlace();
+				Piece nextPiece0 = (PLATEAU.getCase(x + 1, y - 2)).getPieceInPlace();
+				
+				pieceList.add(nextPiece2);
+				pieceList.add(nextPiece0);			
+			}
+			else if(y == 6) {
+				Piece nextPiece2 = (PLATEAU.getCase(x + 2, y - 1)).getPieceInPlace();
+				Piece nextPiece0 = (PLATEAU.getCase(x + 1, y - 2)).getPieceInPlace();
+				Piece nextPiece1 = (PLATEAU.getCase(x + 2, y + 1)).getPieceInPlace();
+				
+				pieceList.add(nextPiece2);
+				pieceList.add(nextPiece0);
+				pieceList.add(nextPiece1);	
+			}
+			else {
+				Piece nextPiece2 = (PLATEAU.getCase(x + 2, y + 1)).getPieceInPlace();
+				Piece nextPiece0 = (PLATEAU.getCase(x + 1, y + 2)).getPieceInPlace();
+				Piece nextPiece1 = (PLATEAU.getCase(x + 2, y - 1)).getPieceInPlace();
+				Piece nextPiece3 = (PLATEAU.getCase(x + 1, y - 2)).getPieceInPlace();
+				
+				
+				pieceList.add(nextPiece2);
+				pieceList.add(nextPiece0);
+				pieceList.add(nextPiece1);
+				pieceList.add(nextPiece3);
+			}
+			
+		}
+		
+		else if(x == 7) {
+			
+			if(y == 0) {
+				
+				Piece nextPiece2 = (PLATEAU.getCase(x - 2, y + 1)).getPieceInPlace();
+				Piece nextPiece0 = (PLATEAU.getCase(x - 1, y + 2)).getPieceInPlace();
+				
+				pieceList.add(nextPiece2);
+				pieceList.add(nextPiece0);
+			}
+			else if(y == 1) {
+				Piece nextPiece2 = (PLATEAU.getCase(x - 2, y + 1)).getPieceInPlace();
+				Piece nextPiece0 = (PLATEAU.getCase(x - 1, y + 2)).getPieceInPlace();
+				Piece nextPiece1 = (PLATEAU.getCase(x - 2, y - 1)).getPieceInPlace();
+				
+				pieceList.add(nextPiece2);
+				pieceList.add(nextPiece0);
+				pieceList.add(nextPiece1);				
+			}
+			else if(y == 7) {
+				Piece nextPiece2 = (PLATEAU.getCase(x - 2, y - 1)).getPieceInPlace();
+				Piece nextPiece0 = (PLATEAU.getCase(x - 1, y - 2)).getPieceInPlace();
+				
+				pieceList.add(nextPiece2);
+				pieceList.add(nextPiece0);			
+			}
+			else if(y == 6) {
+				Piece nextPiece2 = (PLATEAU.getCase(x - 2, y - 1)).getPieceInPlace();
+				Piece nextPiece0 = (PLATEAU.getCase(x - 1, y - 2)).getPieceInPlace();
+				Piece nextPiece1 = (PLATEAU.getCase(x - 2, y + 1)).getPieceInPlace();
+				
+				pieceList.add(nextPiece2);
+				pieceList.add(nextPiece0);
+				pieceList.add(nextPiece1);	
+			}
+			else {
+				Piece nextPiece2 = (PLATEAU.getCase(x - 2, y + 1)).getPieceInPlace();
+				Piece nextPiece0 = (PLATEAU.getCase(x - 1, y + 2)).getPieceInPlace();
+				Piece nextPiece1 = (PLATEAU.getCase(x - 2, y - 1)).getPieceInPlace();
+				Piece nextPiece3 = (PLATEAU.getCase(x - 1, y - 2)).getPieceInPlace();
+				
+				
+				pieceList.add(nextPiece2);
+				pieceList.add(nextPiece0);
+				pieceList.add(nextPiece1);
+				pieceList.add(nextPiece3);
+			}
+			
+		}
 		
 		String res;
 		
@@ -42,7 +128,10 @@ public class Knight extends Piece { //Still need to Add Exception TRY CATCH ever
 		{
 			for(int i = 0 ; i < pieceList.size(); i++) {
 				
-				if ((pieceList.get(i).getX() == toX) && (pieceList.get(i).getY() == toY)) {
+				System.out.println(pieceList.get(i));
+				System.out.println(pieceList);
+				
+	
 					
 					if (pieceList.get(i) != null)
 					{
@@ -59,32 +148,33 @@ public class Knight extends Piece { //Still need to Add Exception TRY CATCH ever
 					return res;
 					}
 				}	
-			}
+			
 			res = "Can\'t";
 			return res;
 		}
 	}
+
 	
-	public boolean toMove(int toX, int toY) {
+	public void toMove(int toX, int toY) {
 		
 		if (this.isValid(toX, toY) == "Can\'t")
 		{
-			return false;
+			
 		}
 		
 		else if (this.isValid(toX,  toY) == "Clear")
 		{
 			this.setX(toX);
 			this.setY(toY);
-			return true;
+			
 		}
 		
 		else if (this.isValid(toX,  toY) == "Eat")
 		{
 			PLATEAU.getCase(getX(), getY()).setPieceToNull();
 			PLATEAU.getCase(toX, toY).setPieceInPlace(this);
-			return true;
+			
 		}
-		return false;
+	
 	}
 }

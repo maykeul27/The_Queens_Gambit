@@ -206,9 +206,7 @@ public class Game extends JPanel{ //Still need to Add Exception TRY CATCH everyw
                                 activePlayer++;
                                 numberOfClicks=0;
                                 //board.getCase(pieceMove.getX(), pieceMove.getY()).getPieceInPlace().toMove(finalI, finalJ);
-                                pieceMove.setIts_me("Pion test");
                                 pieceMove.toMove(finalI, finalJ);
-                                System.out.println("Le nom du pion devrait être Pion test, là il est: " + board.getCase(finalI, finalJ).getPieceInPlace().getIts_me());
                                 refreshGraphicBoard();
                             }
                             else{

@@ -115,12 +115,12 @@ public class Pawn extends Piece { //Still need to Add Exception TRY CATCH everyw
 		}
 	}
 	
-	public boolean toMove(int toX, int toY) {
+	public void toMove(int toX, int toY) {
 		
 		if (this.isValid(toX, toY) == "Can\'t")
 		{
 			System.out.println("Tu ne peux pas aller là");
-			return false;
+			
 		}
 		
 		else if (this.isValid(toX,  toY) == "Clear")
@@ -128,16 +128,15 @@ public class Pawn extends Piece { //Still need to Add Exception TRY CATCH everyw
 			int oldX = getX();
 			int oldY = getY();
 			PLATEAU.getCase(toX, toY).setPieceInPlace(this);
-			System.out.println("La case de destination à reçu la pièce actuelle. " + "Pièce à la nouvelle case (donc cette même pièce) = "+ PLATEAU.getCase(toX, toY).getPieceInPlace() + " Nom de pièce = "+ this.getIts_me());
-			this.setX(toX);
-			System.out.println("La coordonnée Y de la pièce actuelle a été modifié pour :"+ getX());
-			this.setY(toY);
-			System.out.println("La coordonnée X de la pièce actuelle a été modifié pour :"+ getY());
 			PLATEAU.getCase(oldX, oldY).setPieceToNull();
-			System.out.println("La case où se trouvait la pièce à bien été remise à pièce nulle. Pièce à la case d'avant = "+ PLATEAU.getCase(oldX, oldY).getPieceInPlace());
-			System.out.println("La case où se trouve actullement la pièce contient:" + PLATEAU.getCase(getX(), getY()).getPieceInPlace());
-			System.out.println("La case où se trouve actullement la pièce contient:" + PLATEAU.getCase(getX(), getY()).getPieceInPlace().getIts_me());
-			return true;
+			this.setX(toX);
+			//System.out.println("La coordonnée Y de la pièce actuelle a été modifié pour :"+ getX());
+			this.setY(toY);
+			//System.out.println("La coordonnée X de la pièce actuelle a été modifié pour :"+ getY());
+			
+			//System.out.println("La case où se trouvait la pièce a bien été remise à pièce nulle. Pièce à la case d'avant = "+ PLATEAU.getCase(oldX, oldY).getPieceInPlace());
+			//System.out.println("La case où se trouve actullement la pièce contient:" + PLATEAU.getCase(getX(), getY()).getPieceInPlace());
+			
 		}
 		
 		else if (this.isValid(toX,  toY) == "Eat")
@@ -145,12 +144,11 @@ public class Pawn extends Piece { //Still need to Add Exception TRY CATCH everyw
 			int oldX = getX();
 			int oldY = getY();
 			PLATEAU.getCase(toX, toY).setPieceInPlace((PLATEAU.getCase(getX(), getY())).getPieceInPlace());
-			System.out.println("La pièce s'est bien déplacée en: "+ getX() + ","+ getY()+ " (nouvelles coordonnées de case destination).");
+			//System.out.println("La pièce s'est bien déplacée en: "+ getX() + ","+ getY()+ " (nouvelles coordonnées de case destination).");
 			PLATEAU.getCase(getX(), getY()).setPieceToNull();
-			System.out.println("La case où se trouvait la pièce à bien été remise à pièce nulle. Pièce à la case d'avant = "+ PLATEAU.getCase(oldX, oldY).getPieceInPlace());
-			return true;
+			//System.out.println("La case où se trouvait la pièce à bien été remise à pièce nulle. Pièce à la case d'avant = "+ PLATEAU.getCase(oldX, oldY).getPieceInPlace());
+			
 		}
-		return false;
 	}
 
 }
